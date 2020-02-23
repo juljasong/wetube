@@ -9,9 +9,9 @@ C : Control - Function that looks for the data
 
 ## Pages:
 
-- [ ] Home
-- [ ] Join
-- [ ] Login
+- [x] Home
+- [x] Join
+- [x] Login
 - [x] Search
 - [ ] User Detail
 - [ ] Edit Profile
