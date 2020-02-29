@@ -7,6 +7,9 @@ M : Model - Data
 V : View - How does the data look
 C : Control - Function that looks for the data
 
+## mixins(pug)
+웹사이트에서 자주 반복되는 html 코드
+
 ## Pages:
 
 - [x] Home
