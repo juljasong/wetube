@@ -1,50 +1,18 @@
-export const videos = [
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config(); //.env 파일 안 정보(변수) -> process.env.:key에 저장
+
+mongoose.connect(process.env.MONGO_URL, 
     {
-        id:123456,
-        title: 'Video awesome',
-        description: 'This is sosmething I love',
-        views: 24,
-        videoFile:"https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: "user1",
-            name:"Julja1",
-            email:"julja1@gmail.com"
-        }
-    },
-    {
-        id:980098,
-        title: 'Video super',
-        description: 'This is sosmething I love',
-        views: 24,
-        videoFile:"https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: "user2",
-            name:"Julja2",
-            email:"julja2@gmail.com"
-        }
-    },
-    {
-        id:345343,
-        title: 'Video perfect',
-        description: 'This is sosmething I love',
-        views: 24,
-        videoFile:"https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: "user3",
-            name:"Julja3",
-            email:"julja3@gmail.com"
-        }
-    },
-    {
-        id:561345,
-        title: 'Video good',
-        description: 'This is sosmething I love',
-        views: 24,
-        videoFile:"https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: "user4",
-            name:"Julja4",
-            email:"julja4@gmail.com"
-        }
+        useNewUrlParser: true,
+        useFindAndModify: false
     }
-];
+);
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("✅  Connected to DB");
+const handleError = (error) => console.log(`❌ Error on DB Connection: ${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);
