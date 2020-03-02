@@ -1,7 +1,10 @@
 import { reset } from "nodemon";
 import routes from "../routes";
+import Video from "../models/Video";
 
-export const home = (req, res) => {
+export const home = async(req, res) => { // async() - await()
+    const videos = await Video.find({}); // DB에 저장된 모든 video 가져올 때 까지 대기
+    console.log(videos);
     res.render("home", { pageTitle: "Home", videos});
 };
 
