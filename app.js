@@ -24,10 +24,7 @@ app.use(morgan("dev")); // 옵션 지정
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
-app.use(
-    ['/upload', '/users/upload', '/videos/upload'],
-    express.static('upload')
-  );
+app.use('/uploads', express.static('uploads')); //dir에서 file을 보내주는 middleware
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 

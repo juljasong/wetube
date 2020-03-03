@@ -100,7 +100,7 @@ dist
 # FuseBox cache
 .fusebox/
 package-lock.json
-videos
+uploads
 
 # DynamoDB Local files
 .dynamodb/
