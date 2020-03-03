@@ -24,6 +24,10 @@ app.use(morgan("dev")); // 옵션 지정
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
+app.use(
+    ['/upload', '/users/upload', '/videos/upload'],
+    express.static('upload')
+  );
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 
