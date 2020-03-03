@@ -40,6 +40,43 @@ export const postUpload = async(req, res) => {
     res.redirect(routes.videoDetail(newVideo.id));
 };
 
-export const videoDetail = (req, res) => res.render("videoDetail", { pageTitle: "Video Detail"});
-export const editVideo = (req, res) => res.render("editVideo", { pageTitle: "Edit Video"});
+export const videoDetail = async(req, res) => {
+    const {
+        params: {id}
+    } =req;
+    try {
+    const video = await Video.findById(id);
+    console.log(video);
+    res.render("videoDetail", { pageTitle: "Video Detail", video /*:video*/});
+    } catch(error) {
+        res.redirect(routes.home);
+    }
+};
+
+export const getEditVideo = async(req, res) => {
+    const {
+        params: {id}
+    } = req;
+    try {
+        const video = await Video.findById(id);
+        res.render("editVideo", {pageTitle: `Edit ${video.title}`, video});
+    }catch(error) {
+        res.redirect(routes.home);
+    }
+};
+
+export const postEditVideo = async(req, res) => {
+    const {
+        params: {id},
+        body: {title, description}
+    } = req;
+        await Video.findOneAndUpdate({ id }, {title, description }); // findOneAndUpdate(조건, SET 값)
+        res.redirect(routes.videoDetail(id));
+    try {
+
+    }catch(error) {
+        res.redirect(routes.home);
+    }
+};
+
 export const deleteVideo = (req, res) => res.render("deleteVideo", { pageTitle: "Delete Video"});
