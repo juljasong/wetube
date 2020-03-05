@@ -29,17 +29,3 @@ C : Control - Function that looks for the data
 
 $ npm install eslint
 $ eslint --init
-
-> To check syntax, find problems, and enforce code style
-> Use a popular style guide
-> Airbnb: https://github.com/airbnb/javascript
-
-https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-
-\$ npm install eslint-config-prettier // 코딩 스타일 무시
-\$ npm install eslint-plugin-prettier
-.eslintrc.js -> extends -> "plugin:prettier/recommended" 추가
-.eslintrc.js -> rules -> "no-console": "off", "spaced-comment": "off" 추가
-
-\$ npm uninstall eslint -g
--g : global | -D : local
