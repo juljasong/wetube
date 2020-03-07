@@ -27,5 +27,14 @@ C : Control - Function that looks for the data
 
 ## EsLint - 오류 체크
 
-$ npm install eslint
-$ eslint --init
+npm install eslint
+eslint --init
+
+## webpack - 오픈 소스 자바스크립트 모듈 번들러
+
+npm install webpack webpack-cli -> webpack 파일에서 터미널로 사용할 수 있게 함
+npm i cross-env
+
+- webpack.config.js 파일 생성
+
+npm install extract-text-webpack-plugin@next
