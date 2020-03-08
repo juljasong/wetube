@@ -45,3 +45,6 @@ npm install css-loader postcss-loader sass-loader
 - prefix 자동 설정
 - npm install autoprefixer
 - npm install node-sass
+
+- npm install bable-loader
+- npm install @babel/polyfill

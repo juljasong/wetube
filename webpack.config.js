@@ -7,10 +7,18 @@ const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js"); // __dirn
 const OUTPUT_DIR = path.join(__dirname, "static");
 
 const config = {
-  entry: ENTRY_FILE,
+  entry: ["@babel/polyfill", ENTRY_FILE],
   mode: MODE,
   module: {
     rules: [
+      {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ]
+      },
       {
         test: /\.(scss)$/, // .scss 파일 전부 찾기
         use: ExtractCSS.extract([
@@ -19,9 +27,9 @@ const config = {
             loader: "css-loader" // 3rd. css -> webpack
           },
           {
-            loader: "postcss-loader", // 2nd. css -> css 호환
+            loader: "postcss-loader", // 2nd. plugin -> css 실행
             options: {
-              plugin() {
+              plugins() {
                 return [autoprefixer({ browsers: "cover 99.5%" })];
               }
             }
