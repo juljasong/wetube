@@ -38,3 +38,10 @@ npm i cross-env
 - webpack.config.js 파일 생성
 
 npm install extract-text-webpack-plugin@next
+npm install css-loader postcss-loader sass-loader
+
+# postcss
+
+- prefix 자동 설정
+- npm install autoprefixer
+- npm install node-sass
